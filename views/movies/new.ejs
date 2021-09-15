@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate') %> 
+    <div class="new">
+    <h1>ADD Movie</h1>
+    <form action="/movies" method="POST" enctype="multipart/form-data">
+        <div class="title">
+            <input type="text" id='title' name='title' placeholder="TITLE" required>
+        </div>
+        <div class="genre">
+            <input type="text" id="genre" name="genre" placeholder="GENRE" required>
+        </div>
+        <div class="cast">
+            <input type="text" id='cast' name='cast' placeholder="CAST" required>
+        </div>
+        <div class="director">
+            <input type="text" id="director" name="director" placeholder="DIRECTOR" required>
+        </div>
+        <div class="review">
+        <textarea name="review" id="review" cols="22" rows="3" placeholder="REVIEW" required></textarea>
+        </div>
+
+        <div class="image">
+            <input type="file" name="image" id="file">
+            <label for="file">Choose An Image</label>
+            <div id="file-upload-filename"></div>
+        </div>
+       
+        <button class="Add">Add Movie</button>
+    </form>
+    </div>
+
+
+    <script>
+    var input = document.getElementById( 'file' );
+        var infoArea = document.getElementById( 'file-upload-filename' );
+        
+        input.addEventListener( 'change', showFileName );
+        
+        function showFileName( event ) {
+          
+          // the change event gives us the input it occurred in 
+          var input = event.srcElement;
+          
+          // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+          var fileName = input.files[0].name;
+          
+          // use fileName however fits your app best, i.e. add it into a div
+          infoArea.textContent = '• File name: ' + fileName;
+        }
+        </script>
+
+    
+    
+    
